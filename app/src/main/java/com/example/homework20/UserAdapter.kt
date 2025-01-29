@@ -26,9 +26,8 @@ class UserAdapter : PagingDataAdapter<User, UserAdapter.UserViewHolder>(DIFF_CAL
 
     override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
         val currentUser = getItem(position)
-        if (currentUser != null) {
-            holder.bind(currentUser)
-        }
+
+        currentUser?.let { holder.bind(it) }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder {
@@ -40,6 +39,7 @@ class UserAdapter : PagingDataAdapter<User, UserAdapter.UserViewHolder>(DIFF_CAL
             )
         )
     }
+
 
 
     companion object {

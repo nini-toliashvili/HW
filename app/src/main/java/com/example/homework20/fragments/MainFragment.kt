@@ -9,8 +9,10 @@ import android.view.ViewGroup
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.homework20.ApiService
 import com.example.homework20.UserAdapter
 import com.example.homework20.viewmodels.MainViewModel
+import com.example.homework20.viewmodels.MainViewModelFactory
 import com.example.myapplication.R
 import com.example.myapplication.databinding.FragmentMainBinding
 import kotlinx.coroutines.flow.collectLatest
@@ -18,8 +20,10 @@ import kotlinx.coroutines.launch
 
 class MainFragment : BaseFragment<FragmentMainBinding>(FragmentMainBinding::inflate) {
 
-
-    private val viewModel: MainViewModel by viewModels()
+    private val apiService = ApiService.create()
+    private val viewModel: MainViewModel by viewModels() {
+        MainViewModelFactory(apiService)
+    }
     private lateinit var userAdapter: UserAdapter
 
 
@@ -35,6 +39,9 @@ class MainFragment : BaseFragment<FragmentMainBinding>(FragmentMainBinding::infl
                 userAdapter.submitData(pagingData)
             }
         }
+
+
+
     }
 
 }

@@ -22,7 +22,7 @@ class PagingSource(val apiService: ApiService) : PagingSource<Int, User>() {
             val response = apiService.getUsers(nextPageNumber, params.loadSize)
             return LoadResult.Page(
                 data = response.data,
-                prevKey = if (nextPageNumber == 1) null else nextPageNumber - 1,
+                prevKey = null,
                 nextKey = if (nextPageNumber >= response.totalPages) null else nextPageNumber + 1
             )
         } catch (e: IOException) {
