@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fargments.HomeFragment">
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/firstname_et"
+        android:layout_width="0dp"
+        android:layout_height="63dp"
+        android:layout_marginTop="160dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:padding="15dp"
+        android:textSize="20dp"
+        android:textColor="#DE3163"
+        android:textColorHint="#E195AB"
+        android:hint="Enter Firstname"
+        android:background="@drawable/input_fields_shape"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/lastname_et"
+        android:layout_width="0dp"
+        android:layout_height="63dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:padding="15dp"
+        android:textColor="#DE3163"
+        android:textSize="20dp"
+        android:textColorHint="#E195AB"
+        android:hint="Enter Lastname"
+        android:background="@drawable/input_fields_shape"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/firstname_et"/>
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/email_et"
+        android:layout_width="0dp"
+        android:layout_height="63dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:padding="15dp"
+        android:textSize="20dp"
+        android:textColor="#DE3163"
+        android:textColorHint="#E195AB"
+        android:hint="Enter Email"
+        android:background="@drawable/input_fields_shape"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lastname_et"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/save_button"
+        android:layout_width="150dp"
+        android:layout_height="63dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="55dp"
+        android:text="Save"
+        android:textAllCaps="false"
+        android:textSize="20dp"
+        android:textColor="#DE3163"
+        android:background="@drawable/button_shape"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/email_et"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/read_button"
+        android:layout_width="150dp"
+        android:layout_height="63dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="55dp"
+        android:text="Read"
+        android:textAllCaps="false"
+        android:textSize="20dp"
+        android:textColor="#DE3163"
+        android:background="@drawable/button_shape"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/email_et"/>
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/firstname_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="63dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="25dp"
+        android:text=""
+        android:textColor="#DE3163"
+        android:textSize="28sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/save_button" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/lastname_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="63dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="25dp"
+        android:text=""
+        android:textSize="28sp"
+        android:textColor="#DE3163"
+        app:layout_constraintStart_toEndOf="@id/firstname_tv"
+        app:layout_constraintTop_toBottomOf="@id/save_button"/>
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/email_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="63dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="15dp"
+        android:text=""
+        android:textSize="28sp"
+        android:textColor="#DE3163"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/firstname_tv"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
