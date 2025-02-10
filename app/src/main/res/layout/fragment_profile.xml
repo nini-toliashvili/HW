@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#FFEDFA"
+    tools:context=".fargments.ProfileFragment">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/header"
+        android:layout_width="wrap_content"
+        android:layout_height="63dp"
+        android:layout_marginTop="160dp"
+        android:layout_marginStart="30dp"
+        android:text="Profile Info: "
+        android:textSize="31sp"
+        android:textColor="#D4B6FA"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+<androidx.appcompat.widget.AppCompatTextView
+    android:id="@+id/email_tv"
+    android:layout_width="wrap_content"
+    android:layout_height="63dp"
+    android:layout_marginStart="30dp"
+    android:layout_marginTop="25dp"
+    android:text="email"
+    android:textSize="28sp"
+    android:textColor="#B279F6"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/header"/>
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/login_button_l"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="714dp"
+        android:text="Log Out"
+        android:textColor="@color/white"
+        android:textSize="23sp"
+        android:textAllCaps="false"
+        android:backgroundTint="#700bEF"
+        android:background="@drawable/button_shape"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
