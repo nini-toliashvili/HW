@@ -83,6 +83,7 @@
         android:backgroundTint="#D4B6FA"
         android:textColorHint="#B279F6"
         android:hint="Password"
+        android:inputType="textPassword"
         android:paddingStart="120dp"
         android:background="@drawable/button_shape"
         app:layout_constraintStart_toStartOf="parent"

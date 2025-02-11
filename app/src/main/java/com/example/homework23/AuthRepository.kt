@@ -1,28 +1,35 @@
 package com.example.homework23
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.example.homework23.data.Resource
 import com.example.homework23.data.api.ApiService
-import com.example.homework23.data.handleHttpRequest
 import com.example.homework23.data.loginRequest
 import com.example.homework23.data.loginResponse
 import com.example.homework23.data.registerRequest
 import com.example.homework23.data.registerResponse
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.update
 import retrofit2.Response
 
 class AuthRepository(
     private val apiService: ApiService,
-    private val userPreferences: UserPreferences
+     val userPreferences: UserPreferences
 ) {
-    val loginState = MutableLiveData<Resource<String>>()
-    val registerState = MutableLiveData<Resource<Pair<Int, String>>>()
+    private val _loginState = MutableStateFlow<Resource<String>?>(null)
+    val loginState = _loginState.asStateFlow()
+
+    private val _registerState = MutableStateFlow<Resource<Pair<Int, String>>?>(null)
+    val registerState = _registerState.asStateFlow()
 
     suspend fun login(email: String, password: String) {
-
-        val response = apiService.login(loginRequest(email, password))
+        val loginRequest = loginRequest(email, password)
+        val response = apiService.login(loginRequest)
         handleLoginResponse(response)
 
     }
+
     suspend fun register(email: String, password: String) {
 
         val response = apiService.register(registerRequest(email, password))
@@ -35,12 +42,14 @@ class AuthRepository(
             val token = response.body()?.token
             if (!token.isNullOrEmpty()) {
                 userPreferences.saveAuthToken(token)
-                loginState.postValue(Resource.Success(token))
+                _loginState.update { Resource.Success(token) }
             } else {
-                loginState.postValue(Resource.Error("Token not found"))
+                _loginState.update { Resource.Error("Token not found") }
             }
         } else {
-            loginState.postValue(Resource.Error("Authentication failed: ${response.message()}"))
+            Log.d("Response Code", "Code: ${response.code()}, Message: ${response.message()}")
+
+            _loginState.update { Resource.Error("Authentication failed: ${response.message()}") }
         }
     }
 
@@ -49,19 +58,19 @@ class AuthRepository(
             val body = response.body()
             if (body != null && body.token.isNotEmpty()) {
                 userPreferences.saveAuthToken(body.token)
-                registerState.postValue(
+                _registerState.update {
                     Resource.Success(
                         Pair(
                             body.id,
                             body.token
                         )
                     )
-                )  // Success state with ID and token
+                }
             } else {
-                registerState.postValue(Resource.Error("Token not found"))  // Error if token is missing
+                _registerState.update {Resource.Error("Token not found")  }
             }
         } else {
-            registerState.postValue(Resource.Error("Registration failed: ${response.message()}"))  // Error if request fails
+            _registerState.update {Resource.Error("Registration failed: ${response.message()}")  }
         }
     }
 

@@ -5,35 +5,30 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#FFEDFA"
-    tools:context=".fargments.ProfileFragment">
+    tools:context=".fragments.FragmentHome">
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/header"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="50dp"
+        tools:listitem="@layout/page_item"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/log_out_button_l" />
+
+    <ProgressBar
+        android:id="@+id/loader"
         android:layout_width="wrap_content"
-        android:layout_height="63dp"
-        android:layout_marginTop="160dp"
-        android:layout_marginStart="30dp"
-        android:text="Profile Info: "
-        android:textSize="31sp"
-        android:textColor="#D4B6FA"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
-
-<androidx.appcompat.widget.AppCompatTextView
-    android:id="@+id/email_tv"
-    android:layout_width="wrap_content"
-    android:layout_height="63dp"
-    android:layout_marginStart="30dp"
-    android:layout_marginTop="25dp"
-    android:text="email"
-    android:textSize="28sp"
-    android:textColor="#B279F6"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@id/header"/>
-
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/login_button_l"
+        android:id="@+id/log_out_button_l"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginStart="30dp"

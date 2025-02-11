@@ -72,40 +72,14 @@
         app:layout_constraintBottom_toBottomOf="@id/input_email"/>
 
     <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/username_input_field_login"
+        android:id="@+id/password_input_field_register1"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
         android:layout_marginTop="569dp"
         android:textSize="25sp"
-        android:backgroundTint="#D4B6FA"
-        android:textColorHint="#B279F6"
-        android:hint="Username"
-        android:paddingStart="120dp"
-        android:background="@drawable/button_shape"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.appcompat.widget.AppCompatImageView
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_marginStart="25dp"
-        android:src="@drawable/user"
-        app:layout_constraintStart_toStartOf="@id/username_input_field_login"
-        app:layout_constraintTop_toTopOf="@id/username_input_field_login"
-        app:layout_constraintBottom_toBottomOf="@id/username_input_field_login"/>
-
-
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/password_input_field_login"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginTop="663dp"
-        android:textSize="25sp"
+        android:inputType="textPassword"
         android:backgroundTint="#D4B6FA"
         android:textColorHint="#B279F6"
         android:hint="Password"
@@ -120,18 +94,46 @@
         android:layout_height="35dp"
         android:layout_marginStart="25dp"
         android:src="@drawable/locked"
-        app:layout_constraintStart_toStartOf="@id/password_input_field_login"
-        app:layout_constraintTop_toTopOf="@id/password_input_field_login"
-        app:layout_constraintBottom_toBottomOf="@id/password_input_field_login"/>
+        app:layout_constraintStart_toStartOf="@id/password_input_field_register1"
+        app:layout_constraintTop_toTopOf="@id/password_input_field_register1"
+        app:layout_constraintBottom_toBottomOf="@id/password_input_field_register1"/>
+
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/password_input_field_register2"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="663dp"
+        android:textSize="25sp"
+        android:backgroundTint="#D4B6FA"
+        android:textColorHint="#B279F6"
+        android:hint="Repeat"
+        android:inputType="textPassword"
+        android:paddingStart="120dp"
+        android:background="@drawable/button_shape"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="25dp"
+        android:src="@drawable/locked"
+        app:layout_constraintStart_toStartOf="@id/password_input_field_register2"
+        app:layout_constraintTop_toTopOf="@id/password_input_field_register2"
+        app:layout_constraintBottom_toBottomOf="@id/password_input_field_register2"/>
 
     <androidx.appcompat.widget.AppCompatImageView
         android:layout_width="35dp"
         android:layout_height="35dp"
         android:layout_marginEnd="25dp"
         android:src="@drawable/eyeinvisiblefilled"
-        app:layout_constraintEnd_toEndOf="@id/password_input_field_login"
-        app:layout_constraintTop_toTopOf="@id/password_input_field_login"
-        app:layout_constraintBottom_toBottomOf="@id/password_input_field_login"/>
+        app:layout_constraintEnd_toEndOf="@id/password_input_field_register2"
+        app:layout_constraintTop_toTopOf="@id/password_input_field_register2"
+        app:layout_constraintBottom_toBottomOf="@id/password_input_field_register2"/>
 
 
     <androidx.appcompat.widget.AppCompatButton
