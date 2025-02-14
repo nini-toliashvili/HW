@@ -1,0 +1,10 @@
+package com.example.test7.data.remote
+
+import com.example.test7.data.CardDataModel
+import retrofit2.Response
+import retrofit2.http.GET
+
+interface ApiService {
+    @GET("6dffd14a-836f-4566-b024-bd41ace3a874")
+    suspend fun fetchData() : List<CardDataModel>
+}
