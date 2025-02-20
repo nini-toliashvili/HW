@@ -22,6 +22,7 @@
         app:layout_constraintBottom_toBottomOf="parent"/>
 
     <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/welcome"
         android:layout_width="wrap_content"
         android:layout_height="56dp"
         android:text="Welcome"
@@ -35,14 +36,15 @@
 
     <androidx.appcompat.widget.AppCompatImageView
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:src="@drawable/welcomeicon"
-        android:layout_marginTop="214dp"
+        android:layout_marginTop="15dp"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@id/welcome"
+        app:layout_constraintBottom_toTopOf="@id/register_button_hm"/>
     
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/register_button_hm"
@@ -50,7 +52,7 @@
         android:layout_height="50dp"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
-        android:layout_marginTop="678dp"
+        android:layout_marginBottom="45dp"
         android:text="Register"
         android:textColor="@color/white"
         android:textSize="23sp"
@@ -59,7 +61,7 @@
         android:background="@drawable/button_shape"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintBottom_toTopOf="@id/login_button_hm"/>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/login_button_hm"
@@ -68,6 +70,7 @@
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
         android:layout_marginTop="30dp"
+        android:layout_marginBottom="90dp"
         android:text="Login"
         android:textColor="#7800F0"
         android:textSize="23sp"
@@ -76,6 +79,6 @@
         android:background="@drawable/button_shape"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/register_button_hm"/>
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

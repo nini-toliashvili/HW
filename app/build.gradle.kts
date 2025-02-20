@@ -7,6 +7,8 @@ plugins {
     id("androidx.navigation.safeargs.kotlin")
     id("com.google.protobuf") version "0.9.4"
     id("com.google.devtools.ksp")
+    id("kotlin-kapt")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -36,6 +38,17 @@ android {
                 "proguard-rules.pro"
             )
         }
+
+        getByName("debug") {
+            applicationIdSuffix = ".debug"
+            isDebuggable = true
+        }
+
+        create("staging") {
+            initWith(getByName("debug"))
+            manifestPlaceholders["hostName"] = "com.example.homework23"
+            applicationIdSuffix = ".debugStaging"
+        }
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
@@ -44,9 +57,20 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
+
+    implementation("com.squareup.okhttp3:okhttp:4.12.0")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
+
+    implementation("com.google.dagger:hilt-android:2.51.1")
+    kapt("com.google.dagger:hilt-android-compiler:2.51.1")
 
     val room_version = "2.6.1"
 
@@ -129,4 +153,8 @@ protobuf {
             }
         }
     }
+}
+
+kapt {
+    correctErrorTypes = true
 }

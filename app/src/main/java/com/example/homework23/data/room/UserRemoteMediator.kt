@@ -6,16 +6,18 @@ import androidx.paging.LoadType
 import androidx.paging.PagingState
 import androidx.paging.RemoteMediator
 import androidx.room.withTransaction
+import com.example.homework23.data.di.PagingRetrofit
 import com.example.homework23.data.pagination.ApiServiceForPaging
+import javax.inject.Inject
 
 
 @OptIn(ExperimentalPagingApi::class)
-class UserRemoteMediator(
-    private val apiServiceForPaging: ApiServiceForPaging,
-    private val context: Context
+class UserRemoteMediator @Inject constructor(
+    @PagingRetrofit private val apiServiceForPaging: ApiServiceForPaging,
+    private val database: AppDatabase
 ) : RemoteMediator<Int, UserEntity>() {
 
-    private val database: AppDatabase = AppDatabase.getDatabase(context)
+
     private val userDao: UserDao = database.userDao()
     override suspend fun load(
         loadType: LoadType, state: PagingState<Int, UserEntity>

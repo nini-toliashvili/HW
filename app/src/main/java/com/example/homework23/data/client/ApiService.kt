@@ -1,4 +1,4 @@
-package com.example.homework23.data.api
+package com.example.homework23.data.client
 
 import com.example.homework23.data.loginRequest
 import com.example.homework23.data.loginResponse

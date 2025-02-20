@@ -1,23 +1,25 @@
-package com.example.homework23.fragments
+package com.example.homework23.presentation.fragments
 
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
 import com.example.homework23.R
-import com.example.homework23.viewmodels.ViewModel
+import com.example.homework23.presentation.viewmodels.ViewModel
 import com.example.homework23.databinding.FragmentWelcomePageBinding
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
-class FragmentWelcome : BaseFragment<FragmentWelcomePageBinding> (FragmentWelcomePageBinding::inflate) {
-    private val authViewModel by lazy { ViewModel(requireActivity().application) }
+@AndroidEntryPoint
+class FragmentWelcome : BaseFragment<FragmentWelcomePageBinding>(FragmentWelcomePageBinding::inflate) {
+    private val authViewModel : ViewModel by viewModels()
     override fun setUp() {
         listeners()
+
         viewLifecycleOwner.lifecycleScope.launch {
-            authViewModel.authToken.collect { token ->
-                if (token != null) {
+                if (authViewModel.isSessionSaved()) {
                     view?.findNavController()?.navigate(FragmentWelcomeDirections.actionFragmentWelcomeToFragmentProfile())
                 }
             }
-        }
     }
 
     private fun listeners() {

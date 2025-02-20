@@ -1,16 +1,19 @@
-package com.example.homework23.fragments
+package com.example.homework23.presentation.fragments
 
 import android.widget.Toast
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
-import com.example.homework23.viewmodels.ViewModel
+import com.example.homework23.presentation.viewmodels.ViewModel
 import com.example.homework23.data.Resource
 import com.example.homework23.databinding.FragmentLoginBinding
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class FragmentLogin : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::inflate) {
-    private val authViewModel by lazy { ViewModel(requireActivity().application) }
+    private val authViewModel : ViewModel by viewModels()
 
     override fun setUp() {
 
@@ -34,10 +37,11 @@ class FragmentLogin : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
         binding.loginButtonL.setOnClickListener {
             val email = binding.usernameInputFieldLogin.text.toString()
             val password = binding.passwordInputFieldLogin.text.toString()
+            val remember = binding.rememberMe.isChecked
 
 
             if (email.isNotEmpty() && password.isNotEmpty()) {
-                authViewModel.login(email, password)
+                authViewModel.login(email, password, remember)
                 view?.findNavController()
                     ?.navigate(FragmentLoginDirections.actionFragmentLoginToFragmentProfile())
 

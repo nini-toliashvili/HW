@@ -1,20 +1,22 @@
-package com.example.homework23.fragments
+package com.example.homework23.presentation.fragments
 
 
 import android.view.View
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import androidx.transition.Visibility
 import com.example.homework23.UserAdapter
-import com.example.homework23.viewmodels.ViewModel
+import com.example.homework23.presentation.viewmodels.ViewModel
 import com.example.homework23.databinding.FragmentProfileBinding
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class FragmentHome : BaseFragment<FragmentProfileBinding>(FragmentProfileBinding::inflate) {
-    private val authViewModel by lazy { ViewModel(requireActivity().application) }
+    private val authViewModel : ViewModel by viewModels()
     private lateinit var userAdapter: UserAdapter
 
     override fun setUp() {
