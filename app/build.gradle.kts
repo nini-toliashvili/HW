@@ -29,9 +29,11 @@ android {
         viewBinding {
             enable = true
         }
+        buildConfig = true
     }
     buildTypes {
         release {
+            buildConfigField("String", "BASE_URL", "\" https ://reqres.in/api/\"")
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
@@ -39,16 +41,13 @@ android {
             )
         }
 
-        getByName("debug") {
-            applicationIdSuffix = ".debug"
-            isDebuggable = true
+        debug {
+            buildConfigField("String", "BASE_URL", "\" https ://reqres.in/api/\"")
         }
 
-        create("staging") {
-            initWith(getByName("debug"))
-            manifestPlaceholders["hostName"] = "com.example.homework23"
-            applicationIdSuffix = ".debugStaging"
-        }
+
+
+
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8

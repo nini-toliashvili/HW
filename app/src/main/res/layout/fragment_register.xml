@@ -129,14 +129,26 @@
         app:layout_constraintTop_toTopOf="@id/password_input_field_register2"
         app:layout_constraintBottom_toBottomOf="@id/password_input_field_register2"/>
 
-    <androidx.appcompat.widget.AppCompatImageView
+    <androidx.appcompat.widget.AppCompatImageButton
+
+        android:id="@+id/visibility_button_register2"
         android:layout_width="35dp"
         android:layout_height="35dp"
         android:layout_marginEnd="25dp"
-        android:src="@drawable/eyeinvisiblefilled"
+        android:background="@drawable/eyefilled"
         app:layout_constraintEnd_toEndOf="@id/password_input_field_register2"
         app:layout_constraintTop_toTopOf="@id/password_input_field_register2"
         app:layout_constraintBottom_toBottomOf="@id/password_input_field_register2"/>
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/visibility_button_register1"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginEnd="25dp"
+        android:background="@drawable/eyefilled"
+        app:layout_constraintEnd_toEndOf="@id/password_input_field_register1"
+        app:layout_constraintTop_toTopOf="@id/password_input_field_register1"
+        app:layout_constraintBottom_toBottomOf="@id/password_input_field_register1"/>
 
 
     <androidx.appcompat.widget.AppCompatButton
