@@ -40,7 +40,6 @@ class ConnectionsRecyclerAdapter :
                 } else {
                     imvProfile.loadImage(model.avatar)
                 }
-                Log.d("in fun_bind", "still not visible")
             }
         }
     }
