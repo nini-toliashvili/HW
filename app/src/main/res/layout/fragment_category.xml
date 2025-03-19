@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="#FEFEFD"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/category_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:text="@string/category"
+        android:textSize="15sp"
+        android:textColor="#222222"
+        android:fontFamily="@font/montserrat_medium"
+        android:layout_marginTop="35dp"
+        android:layout_marginStart="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/search_field"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginHorizontal="30dp"
+        android:fontFamily="@font/montserrat_medium"
+        android:hint="@string/search_for_category"
+        android:textSize="16sp"
+        android:textColorHint="#D8DCDD"
+        android:paddingStart="12dp"
+        android:background="@drawable/search_edit_text_shape"
+        app:layout_constraintTop_toBottomOf="@id/category_tv"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="0dp"
+        android:layout_height="3dp"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="30dp"
+        android:background="#F8F7F8"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/search_field"
+        />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/suggestions_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="30dp"
+        android:textSize="13sp"
+        android:textColor="#BDC2C4"
+        android:fontFamily="@font/montserrat_medium"
+        android:text="@string/suggestions"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/search_field"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/suggestions_tv"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginHorizontal="30dp"
+        tools:listitem="@layout/category_item"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/suggestions_tv"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/no_matches_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="19sp"
+        android:textColor="#222222"
+        android:fontFamily="@font/montserrat_medium"
+        android:text="@string/no_matches_found"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/suggestions_tv"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

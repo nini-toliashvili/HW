@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Homework25</string>
+    <string name="category">Category</string>
+    <string name="suggestions">Suggestions</string>
+    <string name="search_for_category">Search for Category</string>
+    <string name="no_matches_found">No Matches Found</string>
+</resources>
