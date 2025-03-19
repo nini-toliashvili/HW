@@ -1,9 +1,9 @@
-package com.example.challenge.VSS.presentation.mapper.connection
+package com.example.challenge.presentation.mapper.connection
 
 import com.example.challenge.domain.model.connection.GetConnection
 import com.example.challenge.presentation.model.connection.Connection
 
-fun GetConnection.toPresenter() =
+fun GetConnection.toPresentation() =
     Connection(
         avatar = avatar,
         email = email,

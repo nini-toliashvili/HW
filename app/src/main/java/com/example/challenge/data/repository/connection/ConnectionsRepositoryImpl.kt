@@ -18,10 +18,8 @@ class ConnectionsRepositoryImpl @Inject constructor(
     override suspend fun getConnections(): Flow<Resource<List<GetConnection>>> {
         return handleResponse.safeApiCall {
             connectionsService.getConnections()
-        }.asResource {
-            it.map {
-                it.toDomain()
-            }
+        }.asResource { connectionDtos ->
+            connectionDtos.map { it.toDomain() }
         }
     }
 }

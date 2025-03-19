@@ -9,7 +9,7 @@ suspend fun <Dto : Any, Domain : Any> Flow<Resource<Dto>>.asResource(
 ): Flow<Resource<Domain>> {
     return this.map {
         when (it) {
-            is Resource.Success -> Resource.Success(data = onSuccess.invoke(it.data))
+            is Resource.Success -> Resource.Success(data = onSuccess(it.data))
             is Resource.Error -> Resource.Error(errorMessage = it.errorMessage)
             is Resource.Loading -> Resource.Loading(loading = it.loading)
         }

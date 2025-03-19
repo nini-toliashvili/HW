@@ -23,6 +23,15 @@ object RepositoryModule {
 
     @Provides
     @Singleton
+    fun provideLoginRepository(
+        logInService: LogInService,
+        handleResponse: HandleResponse
+    ): LogInRepository {
+        return LogInRepositoryImpl(logInService = logInService, handleResponse = handleResponse)
+    }
+
+    @Provides
+    @Singleton
     fun provideDataStoreRepository(dataStore: DataStore<Preferences>): DataStoreRepository {
         return DataStoreRepositoryImpl(dataStore = dataStore)
     }
